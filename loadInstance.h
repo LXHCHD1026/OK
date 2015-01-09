@@ -26,16 +26,23 @@
         if (!plik.good()) return false; //nie ma takiego pliku
         plik >> liczba_zadan;
         cout << "Liczba zadań " << liczba_zadan << endl;
-        for(int i =0; i<liczba_zadan; i++)
+        int i=0;
+        while (i<liczba_zadan*2)
         {
             
-            zadania.push_back(zadanie());
+            zadania.push_back(operacja());
+            zadania.push_back(operacja());
             char c;
-            plik >> zadania[i].op1.czas >>c >> zadania[i].op2.czas >>c >> zadania[i].op1.maszyna >>c >> zadania[i].op2.maszyna >>c;
-            cout<<"Zadanie "<< zadania[i].op1.czas <<" "<< zadania[i].op2.czas<<" " << zadania[i].op1.maszyna<<" " << zadania[i].op2.maszyna<<endl;
+            plik >> zadania[i].czas >>c >> zadania[i+1].czas >>c >> zadania[i].maszyna >>c >> zadania[i+1].maszyna >>c;
+            zadania[i+1].prev = i;
+            zadania[i].prev = 0;
+            zadania[i].id = i;
+            zadania[i+1].id = i+1;
+            cout<<"Zadanie "<< zadania[i].czas <<" "<< zadania[i+1].czas<<" " << zadania[i].maszyna<<" " << zadania[i+1].maszyna<<endl;
+            i+=2;
             
         }
-       int i=0;
+        i = 0;
        do
         {
             char c;
@@ -53,9 +60,23 @@
         
     }
     
+    /**
+     * Resetuje feromony
+     */
+    void initInstance(){
+        feromony = new unsigned int *[liczba_zadan*2];
+        for(int i = 0; i<liczba_zadan*2; i++)
+        {
+            feromony[i] = new unsigned int[liczba_zadan*2];
+            for(int j = 0; j<liczba_zadan*2; i++)
+                feromony[i][j] = 0; ///startowe feromony
+        }
+    }
+    
     void clearInstance(){
-        //for(size_t i = 0; i<zadania.size(); i++)
-           // delete *zadania[i];
+        for(int i = 0; i<liczba_zadan*2; i++)
+            delete[] feromony[i];
+            delete[] feromony;
     }
 
 #endif	/* LOADISTANCE_H */
