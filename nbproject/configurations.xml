@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>aco.h</itemPath>
       <itemPath>instance.h</itemPath>
       <itemPath>loadInstance.h</itemPath>
     </logicalFolder>
@@ -11,6 +12,7 @@
                    displayName="Resource Files"
                    projectFiles="true">
       <itemPath>p.in</itemPath>
+      <itemPath>p2.in</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -39,6 +41,8 @@
       </toolsSet>
       <compileType>
       </compileType>
+      <item path="aco.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="instance.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="loadInstance.h" ex="false" tool="3" flavor2="0">
@@ -46,6 +50,8 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p.in" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="p2.in" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -68,6 +74,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="aco.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="instance.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="loadInstance.h" ex="false" tool="3" flavor2="0">
@@ -75,6 +83,8 @@
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="p.in" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="p2.in" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
