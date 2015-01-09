@@ -35,7 +35,7 @@
             char c;
             plik >> zadania[i].czas >>c >> zadania[i+1].czas >>c >> zadania[i].maszyna >>c >> zadania[i+1].maszyna >>c;
             zadania[i+1].prev = i;
-            zadania[i].prev = 0;
+            zadania[i].prev = -1;
             zadania[i].id = i;
             zadania[i+1].id = i+1;
             zadania[i].zad_id = i;
