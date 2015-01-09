@@ -5,6 +5,7 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>aco.h</itemPath>
+      <itemPath>ant.h</itemPath>
       <itemPath>instance.h</itemPath>
       <itemPath>loadInstance.h</itemPath>
     </logicalFolder>
@@ -43,6 +44,8 @@
       </compileType>
       <item path="aco.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ant.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="instance.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="loadInstance.h" ex="false" tool="3" flavor2="0">
@@ -75,6 +78,8 @@
         </asmTool>
       </compileType>
       <item path="aco.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ant.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="instance.h" ex="false" tool="3" flavor2="0">
       </item>

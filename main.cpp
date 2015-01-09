@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include "instance.h"
 #include "loadInstance.h"
+
+#include "ant.h"
 #include "aco.h"
 
 #define iterations 100
