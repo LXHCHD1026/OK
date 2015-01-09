@@ -12,7 +12,7 @@
 #include "ant.h"
 #include "aco.h"
 
-#define iterations 100
+#define iterations 1
 #define ants 5
 
 
