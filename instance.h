@@ -17,9 +17,9 @@ struct operacja{
     unsigned int maszyna;  // numer maszyny na której ma zostać wykonany
     unsigned int start;    // czas rozpoczęcia operacji
     unsigned int id;       // identyfikator operacji
+    unsigned int zad_id;   // id zadania
     bool visited;          // czy został odwiedzony?
     int prev;              // numer zadanie które musi zostać wykonane przed
-    unsigned int id;       // id operacji
 };
 
 struct zadanie{             //zadanie identyfikuje indeks w tabeli
@@ -28,12 +28,13 @@ struct zadanie{             //zadanie identyfikuje indeks w tabeli
 };
 
 struct maszyna{
-    unsigned int czas;
+    int czas_do_konca;
+    unsigned int ostatnie_zadanie;
 };
 
 struct kandydat{
     operacja * next;
-    unsigned int ocena;
+    int ocena;
 };
 
 std::vector<operacja> zadania;

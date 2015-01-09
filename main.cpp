@@ -26,12 +26,14 @@ int main(int argc, char** argv) {
 
     cout <<"ACO Grzeszczuk&Malczewski" << endl;
     loadFile("p2.in");
+    cout << "Tworzenie instancji" << endl;
     initInstance(); //resetowanie feromonów
+    cout << "Tworzenie instancji zakończone" << endl;
     aco(
             iterations,
             ants
             ); //metaheurystyka
-    clearinstance(); //sprzątanie
+    clearInstance(); //sprzątanie
     return 0;
 }
 

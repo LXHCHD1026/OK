@@ -38,6 +38,8 @@
             zadania[i].prev = 0;
             zadania[i].id = i;
             zadania[i+1].id = i+1;
+            zadania[i].zad_id = i;
+            zadania[i+1].zad_id = i;
             cout<<"Zadanie "<< zadania[i].czas <<" "<< zadania[i+1].czas<<" " << zadania[i].maszyna<<" " << zadania[i+1].maszyna<<endl;
             i+=2;
             
@@ -64,11 +66,13 @@
      * Resetuje feromony
      */
     void initInstance(){
+       // cout << "Liczba zadan " << liczba_zadan*2 << endl;
+             
         feromony = new unsigned int *[liczba_zadan*2];
         for(int i = 0; i<liczba_zadan*2; i++)
         {
             feromony[i] = new unsigned int[liczba_zadan*2];
-            for(int j = 0; j<liczba_zadan*2; i++)
+            for(int j = 0; j<liczba_zadan*2; j++)
                 feromony[i][j] = 0; ///startowe feromony
         }
     }

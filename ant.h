@@ -14,7 +14,7 @@
 int liczba_mrowek;
 
 struct Ant{
-    std::list<zadanie*> rozwiazanie;
+    std::list<operacja*> rozwiazanie;
     int max_ocena;
     int ocena;
 };
