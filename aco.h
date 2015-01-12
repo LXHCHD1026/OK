@@ -43,7 +43,7 @@ void szeregowanie(Ant &mrowka){
             ++it)
         (*it).visited = false;
     mrowka.ocena = 0;
-    
+    unsigned int sumaOcen = 0;
     //nie odwiedziliśmy nikogo więc każdego możemy!
     
     list<kandydat> kandydaci_m1;
@@ -86,18 +86,19 @@ void szeregowanie(Ant &mrowka){
                     totalFeromon += ocenaFeromonowa(maszyny[nmo].ostatnie_zadanie, it->next->id, 1);
                 }
             }
-            //cout <<" Suma feromonów "<< totalFeromon<<endl;
+
+            sumaOcen = 0;
             //prawidłowa ocena
             for (list<kandydat>::iterator it = kandydaci_m1.begin();
                     it != kandydaci_m1.end();
                     ++it)
             {
-             //   cout<<"Przetwarzam operacją o id:"<<(*it).next->id<<" "<<(*it).next->maszyna<<endl;
+
                 if (it->next->maszyna == nmo+1) {
                     // jeżeli zadanie poprzedzające nie zostało wykonane olewamy
                     if (!zaleznosc(it->next,mrowka.ocena)) continue;
                     it->ocena = ocenaFeromonowa(maszyny[nmo].ostatnie_zadanie, it->next->id, totalFeromon); //ocena feromonowa jest w zakresie 0-1
-          //          cout << "Ocena feromonowa: "<< it->ocena<<" id: "<<it->next->id<<endl;
+                    sumaOcen += it->ocena;
                 }
             }
             //cout << "Oceny rozdane"<<endl;
@@ -129,8 +130,31 @@ void szeregowanie(Ant &mrowka){
                     }
                 }
             } while (wybrany.next == NULL && !skip); //dopóki nie wybraliśmy. Logiczne nie? :D
+            
+          /*  unsigned int r = rand() / (RAND_MAX*1.0f)* sumaOcen;
+            unsigned int min =0;
+            cout << "R:"<<r<<endl;
+            for (list<kandydat>::iterator it = kandydaci_m1.begin();
+                        it != kandydaci_m1.end();
+                        ++it)
+                {
+                    if (it->next->maszyna == nmo+1) {
+                        // jeżeli zadanie poprzedzające nie zostało wykonane olewamy
+                        if (!zaleznosc(it->next,mrowka.ocena)) continue;
+                        cout << min <<" _ "<<min+it->ocena<<endl;
+                        if (r>=min && r<=min+it->ocena)
+                        {
+                            wybrany = *it;
+                            kandydaci_m1.erase(it);
+                            break;   
+                        } else{
+                            min += it->ocena;
+                        }
+                    }
+                }*/
+            
                 // -- koniec wyboru
-            if(skip){ //cout <<"W wyniku ruletki pomijam element"<<endl;
+            if(/*sumaOcen==0){//*/skip){ //cout <<"W wyniku ruletki pomijam element"<<endl;
                 
             } else
             {
